@@ -8,7 +8,7 @@ on:
 jobs:
   
   deploy-RG:
-    uses: ./.github/workflows/1-pnk-resourcegroups.yml
+    uses: ./.github/workflows/2-pnk-resourcegroups.yml
     with:
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'

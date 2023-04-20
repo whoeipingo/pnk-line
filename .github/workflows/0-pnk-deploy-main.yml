@@ -1,4 +1,4 @@
-name: Deploy Customer Azure Enterprise Scale Landing Zone
+name: Deploy Customer Azure Enterprise Scale Landing Zone PNK
 on:
   push:
       branches: [ main ]

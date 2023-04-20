@@ -8,9 +8,9 @@ on:
 jobs:
   
   deploy-RG:
-    uses: ./.github/workflows/1-pnk-resourcegroupsdelete.yml
+    uses: ./.github/workflows/1-pnk-resourcegroups.yml
     with:
-      Subscription_Id: 'a1c49950-1900-406e-8f64-09ab4e0fc86a'
+      Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       Location: 'westeurope'
     secrets: inherit

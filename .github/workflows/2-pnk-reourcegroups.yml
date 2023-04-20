@@ -1,0 +1,33 @@
+name: Deploy Resource Groups
+
+on:
+  workflow_call:
+    inputs:
+      Subscription_Id:
+        required: true
+        type: string
+      CustomerId:
+        required: true
+        type: string
+      Location:
+        required: true
+        type: string
+
+jobs:
+  deploy-resourcegroups:
+    runs-on: [self-hosted, linux]
+    
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:         
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          subscription-id: ${{ inputs.Subscription_Id }}
+          enable-AzPSSession: true

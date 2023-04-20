@@ -1,0 +1,16 @@
+name: Deploy Customer Azure Enterprise Scale Landing Zone
+on:
+  push:
+      branches: [ main ]
+  workflow_dispatch:
+
+
+jobs:
+  
+  deploy-RG:
+    uses: ./.github/workflows/1-pnk-resourcegroupsdelete.yml
+    with:
+      Subscription_Id: 'a1c49950-1900-406e-8f64-09ab4e0fc86a'
+      CustomerId: 'pnk'
+      Location: 'westeurope'
+    secrets: inherit

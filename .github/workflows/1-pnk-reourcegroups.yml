@@ -41,6 +41,6 @@ jobs:
           subscriptionId: ${{ inputs.Subscription_Id }}
           template: modules/rg/resourcegroups.json
           parameters: >
-            modules/rg/resourcegroups.parameters.json 
+            modules/rg/resourcegroups.parameters.json
             CustomerId=${{ inputs.CustomerId }}
             resourceGroupLocation=${{ inputs.Location }}

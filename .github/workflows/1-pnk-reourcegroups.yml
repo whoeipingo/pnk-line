@@ -1,4 +1,4 @@
-name: Deploy Resource Groups
+name: Deploy Resource Groups PNK
 
 on:
   workflow_call:

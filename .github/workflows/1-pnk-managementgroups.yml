@@ -35,15 +35,5 @@ jobs:
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
 
-      - uses: azure/arm-deploy@v1
-        name: Create Management Groups
-        id: managementGroups
-        with:
-          region: westeurope
-          subscriptionId: ${{ inputs.Subscription_Id }}
-          template: modules/mg/managedgroups.bicep
-          parameters: >
-            modules/mg/managedgroups.parameters.json
-            parCustomerID=${{ inputs.CustomerId }}
-            parCustomerFullName=${{ inputs.CustomerFullName }}
-            resourceGroupLocation=${{ inputs.Location }}
+      - run: |
+          az deployment tenant create --name 'mgmt-groups' --location =${{ inputs.Location }} --template-file modules/rg/resourcegroups.json --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true

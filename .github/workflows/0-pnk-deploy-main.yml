@@ -12,5 +12,6 @@ jobs:
     with:
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
+      CustomerFullNam: 'Pink Elephant'
       Location: 'westeurope'
     secrets: inherit

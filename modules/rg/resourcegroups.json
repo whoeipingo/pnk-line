@@ -31,10 +31,11 @@
     "outputs": {
         "resourcegroup1": {
       "type": "string",
-      "value": "[concat(parameters('CustomerId'), '-lz-',parameters('CustomerId'),'-net','-001' )]""
-    },"resourcegroup2": {
+      "value": "[concat(parameters('CustomerId'), '-lz-',parameters('CustomerId'),'-net','-001' )]"
+    },
+       "resourcegroup2": {
       "type": "string",
-      "value": "[concat(parameters('CustomerId'), '-lz-',parameters('CustomerId'),'-avd','-001' )]""
+      "value": "[concat(parameters('CustomerId'), '-lz-',parameters('CustomerId'),'-avd','-001' )]"
     }
     }
 }

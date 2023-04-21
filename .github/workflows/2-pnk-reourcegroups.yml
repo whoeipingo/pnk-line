@@ -44,4 +44,9 @@ jobs:
             modules/rg/resourcegroups.parameters.json
             CustomerId=${{ inputs.CustomerId }}
             resourceGroupLocation=${{ inputs.Location }}
+            
+    outputs:
+          Subscription_Id: ${{ inputs.Subscription_Id }}
+          CustomerId: ${{ inputs.CustomerId }}
+
 

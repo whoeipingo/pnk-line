@@ -16,13 +16,6 @@ jobs:
       CustomerFullName: 'Pink Elephant'
       Location: 'westeurope'
     secrets: inherit
-    
-  deploy-RG:
-    uses: ./.github/workflows/2-pnk-reourcegroups.yml
-    with:
-      Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
-      CustomerId: 'pnk'
-      Location: 'westeurope'
-    secrets: inherit
+
 
 

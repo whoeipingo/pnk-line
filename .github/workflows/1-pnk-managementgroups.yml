@@ -36,4 +36,4 @@ jobs:
           enable-AzPSSession: true
 
       - run: |
-          az deployment tenant create --name 'mgmt-groups' --location =${{ inputs.Location }} --template-file modules/mg/managementgroups.json --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true
+          az deployment tenant create --name 'mgmt-groups' --location =${{ inputs.Location }} --template-file modules/mg/managedgroups.bicep --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true

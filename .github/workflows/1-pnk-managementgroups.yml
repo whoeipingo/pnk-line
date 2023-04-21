@@ -39,7 +39,6 @@ jobs:
         name: Create Management Groups
         id: managementGroups
         with:
-          scope: tenant
           region: westeurope
           subscriptionId: ${{ inputs.Subscription_Id }}
           template: modules/mg/managedgroups.bicep

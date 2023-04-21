@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy-resourcegroups:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     
     permissions:
       id-token: write
@@ -31,3 +31,17 @@ jobs:
           client-id: ${{ secrets.CLIENT_ID }}
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
+
+      - uses: azure/arm-deploy@v1
+        name: Create Resource Groups
+        id: resourceGroups
+        with:
+          scope: subscription
+          region: westeurope
+          subscriptionId: ${{ inputs.Subscription_Id }}
+          template: modules/rg/resourcegroups.json
+          parameters: >
+            modules/rg/resourcegroups.parameters.json
+            CustomerId=${{ inputs.CustomerId }}
+            resourceGroupLocation=${{ inputs.Location }}
+

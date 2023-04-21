@@ -9,6 +9,9 @@ on:
       CustomerId:
         required: true
         type: string
+      CustomerFullName:
+        required: true
+        type: string
       Location:
         required: true
         type: string

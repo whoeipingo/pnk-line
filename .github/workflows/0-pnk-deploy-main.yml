@@ -7,6 +7,16 @@ on:
 
 jobs:
   
+  
+  deploy-MG:
+    uses: ./.github/workflows/1-pnk-managementgroups.yml
+    with:
+      Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
+      CustomerId: 'pnk'
+      CustomerFullNam: 'Pink Elephant'
+      Location: 'westeurope'
+    secrets: inherit
+    
   deploy-RG:
     uses: ./.github/workflows/2-pnk-reourcegroups.yml
     with:
@@ -15,3 +25,5 @@ jobs:
       CustomerFullNam: 'Pink Elephant'
       Location: 'westeurope'
     secrets: inherit
+
+

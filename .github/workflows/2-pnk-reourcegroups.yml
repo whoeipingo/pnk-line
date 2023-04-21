@@ -46,7 +46,7 @@ jobs:
             resourceGroupLocation=${{ inputs.Location }}
             
     outputs:
-          Subscription_Id: ${{ output.Subscription_Id }}
-          CustomerId: ${{ output.CustomerId }}
+          Subscription_Id: ${{ outputs.Subscription_Id }}
+          CustomerId: ${{ outputs.CustomerId }}
 
 

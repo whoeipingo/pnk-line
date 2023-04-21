@@ -47,6 +47,5 @@ jobs:
             
     outputs:
           resourcegroup1: ${{ steps.resourceGroups.outputs.resourcegroup1 }}
-          resourcegroup2: ${{ steps.resourceGroups.outputs.resourcegroup2 }}
 
 

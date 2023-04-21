@@ -45,5 +45,8 @@ jobs:
             CustomerId=${{ inputs.CustomerId }}
             resourceGroupLocation=${{ inputs.Location }}
  
-      - run: echo ${{ steps.resourceGroups.outputs.resourcegroup1 }}
+      - run: 
+          echo Created Resource groups
+          echo ${{ steps.resourceGroups.outputs.resourcegroup1 }}
+          echo ${{ steps.resourceGroups.outputs.resourcegroup2 }}
 

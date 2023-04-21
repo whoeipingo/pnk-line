@@ -44,8 +44,6 @@ jobs:
             modules/rg/resourcegroups.parameters.json
             CustomerId=${{ inputs.CustomerId }}
             resourceGroupLocation=${{ inputs.Location }}
-            
-    outputs:
-          resourcegroup1: ${{ steps.resourceGroups.outputs.resourcegroup1 }}
-
+ 
+      - run: echo ${{ steps.resourceGroups.outputs.resourcegroup1 }}
 

@@ -8,7 +8,6 @@ param(
     $PrincipalName,
     [ValidateSet("Contributor","Owner","Reader","User Access Administrator")]
     $Role
-    
 )
 
 switch ($PrincipalType)
@@ -21,7 +20,7 @@ switch ($PrincipalType)
 }
 
 $Parameters = @{
-    TemplateFile      = ./.modules/mg/modules/rbac-mg.bicep
+    TemplateFile      = './modules/mg/modules/rbac-mg.bicep'
     ManagementGroupId = $ManagementGroupId
     Location          = $Location
     PrincipalType     = $Principaltype
@@ -31,7 +30,6 @@ $Parameters = @{
 
 
 New-AzManagementGroupDeployment @Parameters | Out-Null
-
 }
 
 

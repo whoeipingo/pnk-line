@@ -36,4 +36,4 @@ jobs:
           enable-AzPSSession: true
 
       - run: |
-          ./modules/managementgroups/rbacroot.ps1
+          ./modules/rbac/rbac-mg-root.ps1

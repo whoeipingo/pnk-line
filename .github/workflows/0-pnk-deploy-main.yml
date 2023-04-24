@@ -5,8 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  name: enabled
-  value: false
+  enabled=false
 
 jobs:
   
@@ -14,7 +13,7 @@ jobs:
   Add-Rootrights:
     uses: ./.github/workflows/1-pnk-addrootrights.yml
     with:
-      condition: eq(env.enabled, true)
+      condition: eq('${{ env.enabled}}', true)
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       CustomerFullName: 'PinkElephant'
@@ -25,7 +24,7 @@ jobs:
     uses: ./.github/workflows/2-pnk-addrootgroups.yml
     needs: Add-Rootrights
     with:
-      condition: eq(env.enabled, true)
+      condition: eq('${{ env.enabled}}', true)
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       CustomerFullName: 'PinkElephant'

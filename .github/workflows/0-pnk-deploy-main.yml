@@ -19,7 +19,7 @@ jobs:
     secrets: inherit
     
   Add-Rootgroups:
-    uses: ./.github/workflows/1-pnk-addrootgroups.yml
+    uses: ./.github/workflows/2-pnk-addrootgroups.yml
     needs: Add-Rootrights
     with:
       condition:  true

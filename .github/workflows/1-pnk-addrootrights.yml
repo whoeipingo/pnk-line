@@ -34,7 +34,9 @@ jobs:
           client-id: ${{ secrets.CLIENT_ID }}
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
-
-      - run: |
-          ./modules/rbac/rbac-mg-root.ps1
+      
+      
+      - uses: PowerShell@2
+          - pwsh ./modules/rbac/rbac-mg-root.ps1
+  
          

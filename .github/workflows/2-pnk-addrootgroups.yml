@@ -38,6 +38,6 @@ jobs:
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
         run: |
-            az ad group list
+            az group create -lwesteurope -n tst-es-009
 
 

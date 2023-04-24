@@ -1,0 +1,44 @@
+name: Add Root Groups
+
+on:
+  workflow_call:
+    inputs:
+      Subscription_Id:
+        required: true
+        type: string
+      CustomerId:
+        required: true
+        type: string
+      CustomerFullName:
+        required: true
+        type: string
+      Location:
+        required: true
+        type: string
+
+jobs:
+  add-rootrights:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:         
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          subscription-id: ${{ inputs.Subscription_Id }}
+          enable-AzPSSession: true
+      
+      - name: 'Add Owner and User Administrator Root admin group to MG Root'
+        id: rootgroups
+        run: |
+          az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --role "Owner" --scope "/"
+          az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-UserAccessAdministrator-P | ConvertFrom-Json).objectId --role "User Access Administrator" --scope "/"
+
+

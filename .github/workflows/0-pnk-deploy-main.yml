@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 env:
-    enabled: false
-   
+  name: enabled
+  value: false
 
 jobs:
   

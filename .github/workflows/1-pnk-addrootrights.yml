@@ -1,1 +1,40 @@
 .
+name: Deploy Root rights
+
+on:
+  workflow_call:
+    inputs:
+      Subscription_Id:
+        required: true
+        type: string
+      CustomerId:
+        required: true
+        type: string
+      CustomerFullName:
+        required: true
+        type: string
+      Location:
+        required: true
+        type: string
+
+jobs:
+  deploy-managementgroups:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        name: Azure OIDC login
+        with:         
+          tenant-id: ${{ secrets.TENANT_ID }}
+          client-id: ${{ secrets.CLIENT_ID }}
+          subscription-id: ${{ inputs.Subscription_Id }}
+          enable-AzPSSession: true
+
+      - run: |
+          az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"

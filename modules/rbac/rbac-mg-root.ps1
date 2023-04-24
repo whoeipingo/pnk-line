@@ -70,5 +70,5 @@ az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?ap
 # 2. Create IAM Root groups
 
 # 3. Set Root rights for Root groups 
-ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'User Access Administrator'
-ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'Owner'
+#ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'User Access Administrator'
+#ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'Owner'

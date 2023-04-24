@@ -2,11 +2,11 @@ function ManRole  {
 
 param(
     $location,
-    [ValidateSet('Group','Serviceprincipal','User')]
+    [ValidateSet("Group","Serviceprincipal","User")]
     $PrincipalType,
     $ManagementGroupId,
     $PrincipalName,
-    [ValidateSet('Contributor','Owner','Reader','User Access Administrator')]
+    [ValidateSet("Contributor","Owner","Reader","User Access Administrator")]
     $Role
     
 )

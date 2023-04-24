@@ -21,7 +21,7 @@ switch ($PrincipalType)
 }
 
 $Parameters = @{
-    TemplateFile      = 'C:\Data\Powershell\WVD\Ray\Pilot\rbac-mg.bicep'
+    TemplateFile      = ./.modules/mg/modules/rbac-mg.bicep
     ManagementGroupId = $ManagementGroupId
     Location          = $Location
     PrincipalType     = $Principaltype

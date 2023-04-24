@@ -36,5 +36,5 @@ jobs:
           enable-AzPSSession: true
 
       - run: |
-          az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
           ./modules/rbac/rbac-mg-root.ps1
+         

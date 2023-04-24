@@ -38,6 +38,6 @@ jobs:
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
         run: |
-            Get-AzContext
+            az ad group list
 
 

@@ -37,8 +37,11 @@ jobs:
       
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
-        run: |
-          $id = (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P --query "objectId"
-          az role assignment create --assignee-object-id $id --assignee-principal-type group --role Reader --scop "/"
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            $id = (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectid
+            az role assignment create --assignee-object-id $id --assignee-principal-type group --role Reader --scop "/"
 
 

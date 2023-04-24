@@ -1,0 +1,56 @@
+name: CI solution
+on:
+  push:
+    branches:
+        - 'feat/**'
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  bicepFilePath: infra/main.bicep
+  location: 'westeurope'
+  resourceGroup: 'az-hackathon-challenge'
+
+jobs:
+  build:
+    name: CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: 'Lint bicep files'
+        id: lint-bicep
+        run: |
+          az bicep build --file ${{ env.bicepFilePath }}
+
+      - name: 'Validate bicep files'
+        id: vaildate-bicep
+        run: |
+          az group create -l ${{env.location}} -n ${{env.resourceGroup}}
+
+          az deployment group validate \
+            --resource-group ${{env.resourceGroup}} \
+            --template-file ${{env.bicepFilePath}}
+
+      - name: 'Preview bicep files'
+        id: preview-bicep
+        run: |
+          az group create -l ${{env.location}} -n ${{env.resourceGroup}}
+
+          az deployment group what-if \
+            --resource-group ${{env.resourceGroup}} \
+            --template-file ${{env.bicepFilePath}}
+  
+  # deploy:
+  #   name: CD
+  #   runs-on: ubuntu-latest

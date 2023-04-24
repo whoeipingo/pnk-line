@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-ENABLED_ID:'test'
+  DAY_OF_WEEK: Monday
 
 jobs:
   
@@ -13,7 +13,7 @@ jobs:
   Add-Rootrights:
     uses: ./.github/workflows/1-pnk-addrootrights.yml
     with:
-      condition: eq('${{ env.ENABLED_ID}}', true)
+      condition: eq('${{ env.DAY_OF_WEEK}}', Tuesday)
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       CustomerFullName: 'PinkElephant'
@@ -24,7 +24,7 @@ jobs:
     uses: ./.github/workflows/2-pnk-addrootgroups.yml
     needs: Add-Rootrights
     with:
-      condition: eq('${{ env.ENABLED_ID}}', true)
+      condition: eq('${{ env.DAY_OF_WEEK}}', Tuesday)
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       CustomerFullName: 'PinkElephant'

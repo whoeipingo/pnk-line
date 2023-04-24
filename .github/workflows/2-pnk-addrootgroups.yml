@@ -40,12 +40,12 @@ jobs:
         id: rootgroups
         run: |
           az role assignment create \
-          --assignee (az ad group show --group 'IAM-UM-AZ-Root_Admin_Access-Owner' --query "objectId") \
+          --assignee (az ad group show --group "IAM-UM-AZ-Root_Admin_Access-Owner" --query "objectId") \
           --role "Owner" \
           --scope "/"
           
           az role assignment create \
-          --assignee (az ad group show --group 'IAM-UM-AZ-Root_Admin_Access-Owner' --query "objectId") \
+          --assignee (az ad group show --group "IAM-UM-AZ-Root_Admin_Access-Owner" --query "objectId") \
           --role "User Access Administrator" \
           --scope "/"
 

@@ -39,6 +39,6 @@ jobs:
         shell: pwsh
         id: rootgroups
         run: |
-        (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId
+          (az ad group show --group "IAM-UM-AZ-Root_Admin_Access-Owner-P" | ConvertFrom-Json).objectid
 
 

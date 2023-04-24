@@ -1,4 +1,4 @@
-name: Deploy Management Groups
+name: Add Root Rights
 
 on:
   workflow_call:
@@ -17,7 +17,7 @@ on:
         type: string
 
 jobs:
-  deploy-managementgroups:
+  add-rootrights:
     runs-on: ubuntu-latest
     
     permissions:
@@ -36,4 +36,5 @@ jobs:
           enable-AzPSSession: true
 
       - run: |
+          az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
           ./modules/rbac/rbac-mg-root.ps1

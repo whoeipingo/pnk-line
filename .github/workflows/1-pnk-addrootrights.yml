@@ -1,5 +1,4 @@
-.
-name:DeployRootrights
+name: Deploy Management Groups
 
 on:
   workflow_call:

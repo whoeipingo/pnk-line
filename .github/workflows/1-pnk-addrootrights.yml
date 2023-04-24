@@ -36,7 +36,11 @@ jobs:
           enable-AzPSSession: true
       
       
-      - uses: PowerShell@2
-          - pwsh ./modules/rbac/rbac-mg-root.ps1
+      - shell: pwsh
+        name: Add Root rights
+        id: rootrights
+        run: |
+           ./modules/rbac/rbac-mg-root.ps1
+
   
          

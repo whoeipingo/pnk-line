@@ -1,5 +1,5 @@
 .
-name: Deploy Root rights
+name:DeployRootrights
 
 on:
   workflow_call:

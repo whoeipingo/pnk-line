@@ -8,7 +8,6 @@ param(
     $PrincipalName,
     [ValidateSet('Contributor','Owner','Reader','User Access Administrator')]
     $Role
-    
 )
 
 switch ($PrincipalType)
@@ -31,7 +30,6 @@ $Parameters = @{
 
 
 New-AzManagementGroupDeployment @Parameters | Out-Null
-
 }
 
 

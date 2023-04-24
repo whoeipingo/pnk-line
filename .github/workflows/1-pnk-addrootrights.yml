@@ -1,4 +1,4 @@
-name: Add Root Rights
+name: Add Root Rights Github Azure AD account
 
 on:
   workflow_call:
@@ -35,12 +35,11 @@ jobs:
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
       
-      
-      - shell: pwsh
-        name: Add Root rights
+      - name: 'Give Github account User Administrator Root rights'
         id: rootrights
         run: |
-           ./modules/rbac/rbac-mg-root.ps1
+          #az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+
 
   
          

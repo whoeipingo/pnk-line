@@ -37,10 +37,7 @@ jobs:
       
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.0.72
-          run: |
+        run: |
             Get-AzContext
 
 

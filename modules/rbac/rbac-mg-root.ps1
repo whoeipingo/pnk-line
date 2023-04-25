@@ -74,4 +74,4 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 
 # (az group update --name SendGrid | Convertfrom-json).id
  #az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Owner" --scope "/"
- az role assignment create --assignee 0641a1bb-db45-458c-8178-f901d5d9a54b --assignee-principal-type group --role "Contributor" --scope "/"
+az role assignment create --assignee-object-id '0641a1bb-db45-458c-8178-f901d5d9a54b' --assignee-principal-type group --role "Contributor" --scope "/"

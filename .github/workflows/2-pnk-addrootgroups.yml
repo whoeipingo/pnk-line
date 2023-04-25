@@ -35,11 +35,8 @@ jobs:
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
           
-      - uses: actions/checkout@v3
-      - shell: pwsh
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
-        run: |
-          $test = (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json)
-          $test.objectid
+        run: 
+            ./modules/rbac/rbac-mg-root.ps1
   

@@ -36,7 +36,7 @@ jobs:
           enable-AzPSSession: true
         
       - shell: pwsh
-      - name: 'Add Owner and User Administrator Root admin group to MG Root'
+        name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
           - pwsh:./modules/rbac/rbac-mg-root.ps1
   

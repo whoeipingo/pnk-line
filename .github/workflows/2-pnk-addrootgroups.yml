@@ -36,6 +36,18 @@ jobs:
           enable-AzPSSession: true
         
       - shell: pwsh
+        name: Ensure correct Az module is installed
+        run: |
+          if (Get-Module Az -ListAvailable | Where-Object { $_.Version -eq $env:az_powershell_min_version }) {
+            Write-Host "Az module version $env:az_powershell_min_version is already installed"
+            Import-Module Az -MinimumVersion $env:az_powershell_min_version
+          }
+          else {
+              Write-Host "Az module version $env:az_powershell_min_version is going to be installed"
+              Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser -Repository PSGallery -MinimumVersion $env:az_powershell_min_version
+          }        
+          
+      - shell: pwsh
         name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
         run: |

@@ -19,6 +19,7 @@ jobs:
     uses: ./.github/workflows/2-pnk-addrootgroups.yml
     needs: Add-Rootrights
     with:
+      az_powershell_min_version: ${{ vars.AZ_POWERSHELL_MIN_VERSION }}
       Subscription_Id: '8cdd9893-afc4-4a42-8060-db0558c395f4'
       CustomerId: 'pnk'
       CustomerFullName: 'PinkElephant'

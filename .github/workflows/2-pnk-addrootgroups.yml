@@ -15,11 +15,17 @@ on:
       Location:
         required: true
         type: string
+      az_powershell_min_version:
+        required: true
+        type: string
 
 jobs:
   add-rootrights:
     runs-on: ubuntu-latest
     
+    env:
+      az_powershell_min_version: ${{ inputs.az_powershell_min_version }}
+
     permissions:
       id-token: write
       contents: read

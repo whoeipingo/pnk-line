@@ -37,6 +37,5 @@ jobs:
           
       - name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
-        run: 
-            ./modules/rbac/rbac-mg-root.ps1
+          - pwsh:./modules/rbac/rbac-mg-root.ps1
   

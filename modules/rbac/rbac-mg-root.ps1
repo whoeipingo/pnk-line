@@ -63,10 +63,14 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 }
 
 # 1. ADD User Access Administrator @Root for logged in user
-az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+# az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
 
 # 2. Create IAM Root groups
 
 # 3. Set Root rights for Root groups 
-ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'User Access Administrator'
-ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'Owner'
+# ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'User Access Administrator'
+# ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'Owner'
+
+ az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Owner" --scope "/"
+
+ az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Pink_Second_Line_Support-Contributor-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Contributor" --scope "/"

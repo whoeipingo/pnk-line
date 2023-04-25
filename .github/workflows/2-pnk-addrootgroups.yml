@@ -63,6 +63,6 @@ jobs:
         name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: test
         run: |
-          $test = (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId
-          write-output $test
+          $test = az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json
+          write-output $test.objectid
           

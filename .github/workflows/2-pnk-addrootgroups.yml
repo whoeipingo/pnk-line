@@ -63,4 +63,6 @@ jobs:
         name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: test
         run: |
-          az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --role "Owner" --scope "/"
+          write-host (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId
+          az role assignment create --assignee-object-id (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Reader" --scope "/"
+          

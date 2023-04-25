@@ -70,6 +70,8 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 # 3. Set Root rights for Root groups 
 # ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'User Access Administrator'
 # ManRole -location westeurope -PrincipalType Group -ManagementGroupId ((get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId) -PrincipalName $UAAdministrator[0] -Role 'Owner'
-az group list --query "[?location=='westeurope']"
+# az group list --query "[?location=='westeurope']"
+
+ (az group update --name SendGrid | Convertfrom-json).id
  #az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Owner" --scope "/"
  #az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Pink_Second_Line_Support-Contributor-P | ConvertFrom-Json).objectId --assignee-principal-type group --role "Contributor" --scope "/"

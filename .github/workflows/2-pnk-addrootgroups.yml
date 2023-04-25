@@ -59,3 +59,8 @@ jobs:
         run: |
           ./modules/rbac/rbac-mg-root.ps1
   
+      - shell: pwsh
+        name: 'Add Owner and User Administrator Root admin group to MG Root'
+        id: test
+        run: |
+          az role assignment create --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectId --role "Owner" --scope "/"

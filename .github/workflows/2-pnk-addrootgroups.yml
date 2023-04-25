@@ -63,6 +63,7 @@ jobs:
         name: 'Test code'
         id: test
         run: |
+          #!/usr/bin/env pwsh
           $test = az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json
           az role assignment create --assignee-object-id ($test.objectId) --assignee-principal-type group --role "Reader" --scope "/"
           

@@ -53,9 +53,10 @@ jobs:
               Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser -Repository PSGallery -MinimumVersion $env:az_powershell_min_version
           }        
           
-          name: 'Add Owner and User Administrator Root admin group to MG Root'
-          id: rootgroups
-          run: |
+      - shell: pwsh
+        name: 'Add Owner and User Administrator Root admin group to MG Root'
+        id: rootgroups
+        run: |
           echo ./modules/rbac/rbac-mg-root.ps1
   
       - shell: pwsh

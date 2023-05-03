@@ -59,8 +59,9 @@ jobs:
         name: 'Add Owner and User Administrator Root admin group to MG Root'
         id: rootgroups
         run: |
-          $Owner = ${{ env.az_rootadmin_group_owner }}
-          $Uaa   = ${{ env.az_rootadmin_group_owner }}
+          Owner: ${{ env.az_rootadmin_group_owner }}
+          Uaa: ${{ env.az_rootadmin_group_owner }}
+          
           echo ${{ env.az_rootadmin_group_owner }}
           echo ${{ env.az_rootadmin_group_owner }}
           echo ./modules/rbac/rbac-mg-root.ps1

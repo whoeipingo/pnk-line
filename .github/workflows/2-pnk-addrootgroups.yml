@@ -63,6 +63,6 @@ jobs:
         name: 'Test code'
         id: test
         run: |
-          az role assignment create --assignee-object-id '$(az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectid)' --assignee-principal-type group --role "Owner" --scope "/"
+          az role assignment create --assignee-object-id '${(az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).objectid)}' --assignee-principal-type group --role "Owner" --scope "/"
 
           

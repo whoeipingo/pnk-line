@@ -64,7 +64,8 @@ jobs:
         id: test
         run: |
           az role assignment create --assignee-object-id (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).id --assignee-principal-type group --role "Owner" --scope "/"
-          az role assignment create --assignee-object-id (az ad group show --group IAM-UM-AZ-Root_Admin_Access-UserAccessAdministrator-P | ConvertFrom-Json).id --assignee-principal-type group --role "Owner" --scope "/"
-
+          az role assignment create --assignee-object-id (az ad group show --group IAM-UM-AZ-Root_Admin_Access-UserAccessAdministrator-P | ConvertFrom-Json).id --assignee-principal-type group --role "User Access Administrator" --scope "/"
+          az role assignment delete --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-UserAccessAdministrator-P | ConvertFrom-Json).id --role "Owner" --scope "/"
+          az role assignment delete --assignee (az ad group show --group IAM-UM-AZ-Root_Admin_Access-Owner-P | ConvertFrom-Json).id --role "Reader" --scope "/"
 
           

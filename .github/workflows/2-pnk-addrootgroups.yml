@@ -62,10 +62,10 @@ jobs:
         
         env:
             Owner: ${{ env.az_rootadmin_group_owner }}
-            Uaa: ${{ env.az_rootadmin_group_owner }}
+            Uaa: ${{ env.az_rootadmin_group_uaa }}
           
               echo ${{ env.az_rootadmin_group_owner }}
-              echo ${{ env.az_rootadmin_group_owner }}
+              echo ${{ env.az_rootadmin_group_uaa }}
               echo ./modules/rbac/rbac-mg-root.ps1
   
 

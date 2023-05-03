@@ -83,7 +83,7 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
         #run: |
         
 # Assign Root roles to Admin Root Groups AzureAD
-az role assignment create --assignee-object-id (az ad group show --group $ENV:az_rootadmin_group_owne | ConvertFrom-Json).id --assignee-principal-type group --role "Owner" --scope "/"
+az role assignment create --assignee-object-id (az ad group show --group $ENV:az_rootadmin_group_owner | ConvertFrom-Json).id --assignee-principal-type group --role "Owner" --scope "/"
 az role assignment create --assignee-object-id (az ad group show --group $ENV:az_rootadmin_group_uaa | ConvertFrom-Json).id --assignee-principal-type group --role "User Access Administrator" --scope "/"
 # Assign Git account to Azure Admin Root groups
 az ad group member add --group $ENV:az_rootadmin_group_uaa --member-id (az ad sp list --display-name pnk-pipeline-customers | convertFrom-JSON).id

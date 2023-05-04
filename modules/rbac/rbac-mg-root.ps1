@@ -91,5 +91,6 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 
 # $test = (get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId)
 $test = "Testje"
-write-output $test >> $env:GITHUB_OUTPUT
+Write-Output "top_management_group_id=$(test)" >> $Env:GITHUB_OUTPUT
+Get-Content $Env:GITHUB_OUTPUT
 

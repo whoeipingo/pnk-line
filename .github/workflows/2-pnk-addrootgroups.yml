@@ -62,6 +62,9 @@ jobs:
           
             ./modules/rbac/rbac-mg-root.ps1
   
-
+      - shell: pwsh
+        name: Reading environment variables
+        run: |
+          Get-ChildItem env: | fl
           
           

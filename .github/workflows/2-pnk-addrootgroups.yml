@@ -66,5 +66,6 @@ jobs:
         name: Reading environment variables
         run: |
           Get-ChildItem env: | fl
+          echo test
           
           

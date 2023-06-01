@@ -89,7 +89,7 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 #az ad group member add --group $ENV:az_rootadmin_group_uaa --member-id (az ad sp list --display-name pnk-pipeline-customers | convertFrom-JSON).id
 #az ad group member add --group $ENV:az_rootadmin_group_owner --member-id (az ad sp list --display-name pnk-pipeline-customers | convertFrom-JSON).id
 
-$test = (get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId)
+$test = (get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId
 # $test = "Testje"
 Write-Output "top_management_group_id=$test" >> $Env:GITHUB_OUTPUT
 Get-Content $Env:GITHUB_OUTPUT

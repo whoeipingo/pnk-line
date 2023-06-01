@@ -20,7 +20,7 @@ on:
         type: string
 
 jobs:
-  add-rootrights:
+  add-rootgroups:
     runs-on: ubuntu-latest
     
     env:

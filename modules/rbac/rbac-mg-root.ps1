@@ -62,6 +62,13 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 
 }
 
+
+
+az role assignment create --assignee-object-id (az ad group list --query "[?displayName=='$($owner)']" | convertFrom-json).objectId --assignee-principal-type group --role "Owner" --scope "/"
+
+#az ad group --display-name 'IAM-UM-AZ-Root_Admin_Access-Owner-P'
+#CreateRoleGroups
+
 # 1. ADD User Access Administrator @Root for logged in user
 # az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
 

@@ -67,6 +67,6 @@ jobs:
         run: |
           Get-ChildItem env: | fl
     
-          echo ${{ steps.rootgroups.outputs.top_management_group_id }}
+          echo ${{ steps.rootgroups.outputs.rootid }}
           echo ${{ steps.rootgroups.outputs.grapjas }}
-          echo einde test
+         

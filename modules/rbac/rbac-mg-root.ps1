@@ -90,11 +90,11 @@ if (!(az ad group list --filter "displayname eq '$($obj)' " --only-show-errors| 
 #az ad group member add --group $ENV:az_rootadmin_group_owner --member-id (az ad sp list --display-name pnk-pipeline-customers | convertFrom-JSON).id
 
 # $test = (get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Root Management Group'}).TenantId
-$test = (az account management-group list --query "[?displayName=='Root Management Group']" |convertFrom-Json).tenantId
+$test = (az account management-group list --query "[?displayName=='Root Management Group']" | convertFrom-Json).tenantId
 $test1 = 'Dit is geen wachtwoord'
 #$test = (get-AzManagementGroup | Where-Object {$_.DisplayName -eq 'Tenant Root Group'}).TenantId
 # $test = "Testje123"
-Write-Output "top_management_group_id= $($test)" >> $Env:GITHUB_OUTPUT
+Write-Output "rootid= $($test)" >> $Env:GITHUB_OUTPUT
 Write-Output "grapjas= $($test1)" >> $Env:GITHUB_OUTPUT
 Get-Content $Env:GITHUB_OUTPUT
 

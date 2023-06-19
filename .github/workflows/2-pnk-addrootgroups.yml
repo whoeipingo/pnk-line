@@ -66,6 +66,6 @@ jobs:
         name: Reading environment variables
         run: |
           Get-ChildItem env: | fl
-          
-    outputs:
-        My_great_Id: ${{ steps.rootgroups.outputs.top_management_group_id }}         
+    
+          echo ${{ steps.rootgroups.outputs.top_management_group_id }}
+            

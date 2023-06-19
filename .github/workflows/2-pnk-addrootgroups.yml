@@ -69,3 +69,4 @@ jobs:
     
           echo ${{ steps.rootgroups.outputs.top_management_group_id }}
           echo ${{ steps.rootgroups.outputs.grapjas }}
+          echo einde test

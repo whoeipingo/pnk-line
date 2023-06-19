@@ -68,4 +68,5 @@ jobs:
           Get-ChildItem env: | fl
           echo test
           
-          
+          outputs:
+            Top_MG_Id: ${{ steps.rootgroups.outputs.top_management_group_id }}         

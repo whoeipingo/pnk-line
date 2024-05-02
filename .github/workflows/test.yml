@@ -28,17 +28,6 @@ on:
         type: environment
 
 jobs:
-  greet:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.customerfullname }}"
-           echo "${{ github.event.inputs.customerid }}"
-           echo "${{ github.event.inputs.subscription_lzid }}"
-           echo "${{ github.event.inputs.subscription_lzid }}"
-           echo "${{ github.event.inputs.subscription_plide }}"
-           echo "${{ github.event.inputs.subscription_plman }}"
 
   Add-Rootrights:
     uses: ./.github/workflows/1-pnk-addrootrights.yml

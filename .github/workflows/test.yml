@@ -3,18 +3,24 @@ name: Mixed inputs
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
-        - Eelco
-      message:
+      customerfullname:
+        description: Geef de volledige klantnaame op zonder spaties
+        required: true  
+      customerid:
+        description: Vul hier klant ID in
         required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
+      subscription_lzid:
+        description: Vul hier de subscription ID in van de klant landingzone (LZ)
+        required: true
+      subscription_plcon:
+        description: Vul hier de subscription ID in van de "connectivity" subscription (PL)
+        required: true
+      subscription_plide:
+        description: Vul hier de subscription ID in van de "identity" subscription (PL)
+        required: true
+      subscription_plman:
+        description: Vul hier de subscription ID in van de "management" subscription (PL)
+        required: true
       environment:
         type: environment
 
@@ -24,5 +30,9 @@ jobs:
 
     steps:
     - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
-      
+      run: echo "${{ github.event.inputs.customerfullname }}"
+           echo "${{ github.event.inputs.customerid }}"
+           echo "${{ github.event.inputs.subscription_lzid }}"
+           echo "${{ github.event.inputs.subscription_lzid }}"
+           echo "${{ github.event.inputs.subscription_plide }}"
+           echo "${{ github.event.inputs.subscription_plman }}"

@@ -1,4 +1,4 @@
-name: Deploy Customer Azure Enterprise Scale Landing Zone PNK2
+name: Deploy Customer CAF via Workflow
 
 on:
       
@@ -28,7 +28,7 @@ on:
 jobs:
 
   Add-Rootrights:
-    uses: ./.github/workflows/1-pnk-addrootrights.yml
+    uses: ./.github/workflows/1-pnk-managementgroups.yml
     with:
       Subscription_Id: ${{ github.event.inputs.subscription_lzid }}
       CustomerId: ${{ github.event.inputs.customerid }}

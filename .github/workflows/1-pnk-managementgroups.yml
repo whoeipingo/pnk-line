@@ -29,16 +29,12 @@ jobs:
 
       - uses: azure/login@v2
         name: Azure OIDC login
-        with:         
+        with:
+          azcliversion: 2.30.0
           tenant-id: ${{ secrets.TENANT_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
-
-      - name: Azure CLI script file
-        uses: azure/cli@v2
-        with: 
-          azcliversion: 2.30.0
 
       - run: |
           az deployment tenant create --name 'mgmt-groups' --location ${{ inputs.Location }} --template-file modules/mg/managedgroups.bicep --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true

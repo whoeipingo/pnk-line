@@ -1,4 +1,4 @@
-name: Mixed inputs
+name: Deploy Customer Azure Enterprise Scale Landing Zone PNK2
 
 on:
   workflow_dispatch:

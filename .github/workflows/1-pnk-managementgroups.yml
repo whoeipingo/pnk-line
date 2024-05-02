@@ -25,9 +25,13 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: azure/login@v1.6.1
+
+      - name: Clean install dependencies and build
+
+          
         name: Azure OIDC login
         with:
           tenant-id: ${{ secrets.TENANT_ID }}
@@ -38,3 +42,7 @@ jobs:
 
       - run: |
           az deployment tenant create --name 'mgmt-groups' --location ${{ inputs.Location }} --template-file modules/mg/managedgroups.bicep --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true
+      
+      - run: |
+          npm ci
+          npm run build

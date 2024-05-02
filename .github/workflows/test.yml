@@ -1,6 +1,9 @@
 name: Deploy Customer Azure Enterprise Scale Landing Zone PNK2
 
 on:
+  push:
+      branches: [ main ]
+      
   workflow_dispatch:
     inputs:
       customerfullname:

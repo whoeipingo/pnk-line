@@ -35,12 +35,6 @@ jobs:
           subscription-id: ${{ inputs.Subscription_Id }}
           enable-AzPSSession: true
 
-      - name: Azure CLI script
-        uses: azure/cli@v2
-        with:
-           azcliversion: latest
-           inlineScript: |
-            az account show
 
-      #- run: |
-      #    az deployment tenant create --name 'mgmt-groups' --location ${{ inputs.Location }} --template-file modules/mg/managedgroups.bicep --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true
+      - run: |
+          az deployment tenant create --name 'mgmt-groups' --location ${{ inputs.Location }} --template-file modules/mg/managedgroups.bicep --parameters parCustomerID=${{ inputs.CustomerId }}  parCustomerFullName=${{ inputs.CustomerFullName }}  authForNewMG=true configMGSettings=true

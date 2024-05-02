@@ -39,3 +39,13 @@ jobs:
            echo "${{ github.event.inputs.subscription_lzid }}"
            echo "${{ github.event.inputs.subscription_plide }}"
            echo "${{ github.event.inputs.subscription_plman }}"
+
+  Add-Rootrights:
+    uses: ./.github/workflows/1-pnk-addrootrights.yml
+    with:
+      Subscription_Id: ${{ github.event.inputs.subscription_lzid }}
+      CustomerId: ${{ github.event.inputs.customerid }}
+      CustomerFullName: ${{ github.event.inputs.customerfullname }}
+      Location: 'westeurope'
+    secrets: inherit
+    

@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: azure/login@v2.1.0
+      - uses: azure/login@v1.6.1
         name: Azure OIDC login
         with:
           tenant-id: ${{ secrets.TENANT_ID }}

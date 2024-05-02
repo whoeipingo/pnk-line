@@ -30,7 +30,6 @@ jobs:
       - uses: azure/login@v2.1.0
         name: Azure OIDC login
         with:
-          azPSVersion: "11.6.0"
           tenant-id: ${{ secrets.TENANT_ID }}
           client-id: ${{ secrets.CLIENT_ID }}
           subscription-id: ${{ inputs.Subscription_Id }}
